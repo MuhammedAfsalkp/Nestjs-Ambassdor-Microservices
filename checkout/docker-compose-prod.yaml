@@ -1,0 +1,39 @@
+version: '3'
+services:
+  checkout_backend:
+    build: .
+    command: "npm run start:dev"
+    image: afsalkp/checkout:0.0.8
+    ports:
+      - 8004:3000
+    environment:
+      BOOTSTRAP_SERVERS: pkc-41p56.asia-south1.gcp.confluent.cloud:9092
+      SASL_USERNAME: 442V3XBIVI6K43UW
+      SASL_PASSWORD: qT7k8wzjXZQY+X2B2Jfakb3b/VrGNfpugthG3JFZRRx4hLNuci79DSGV8kGM1Kix
+      GROUP_ID:   checkout_consumer
+      DB_HOST: 35.200.235.207
+      DB_PORT: 3306
+      DB_DATABASE: checkout
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      USERS_MS: http://users-backend:8001
+      CHECKOUT_URL: http://localhost:5000
+      STRIPE_KEY: sk_test_51LEPLnSDY8ulaATOtKtXwrJEwAtwylDpFTfJH4kiiaqDRmYWVfdw2Im6ubt4VcMaZyWDMet9UpcM25BxLU3a2jyx00au74cEFf
+
+  checkout_consumer:
+    build: .
+    command: "npm run consume"
+    image: afsalkp/checkout:0.0.8
+    environment:
+      BOOTSTRAP_SERVERS: pkc-41p56.asia-south1.gcp.confluent.cloud:9092
+      SASL_USERNAME: 442V3XBIVI6K43UW
+      SASL_PASSWORD: qT7k8wzjXZQY+X2B2Jfakb3b/VrGNfpugthG3JFZRRx4hLNuci79DSGV8kGM1Kix
+      GROUP_ID:   checkout_consumer
+      DB_HOST: 35.200.235.207
+      DB_PORT: 3306
+      DB_DATABASE: checkout
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      USERS_MS: http://users-backend:8001
+
+    

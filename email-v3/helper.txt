@@ -1,0 +1,59 @@
+* 1for dev
+file: docker-compose.yaml
+-  docker compose up
+-   docker compose up --build  (rebuild)
+--------------------------------------------------------
+*  2.for production
+--------------------------------------------------------
+file: docker-compose-prod.yaml
+docker compose -f docker-compose-prod.yaml up --build. (to test run)
+docker compose -f docker-compose-prod.yaml build(to create docker image with tag as username/name:tag)
+push to hub through docker desktop after signin 
+
+*3. install kompose to generate kubernetes file automaticallly from docker copse
+*4 kompose convert -f docker-compose-prod.yaml
+ remove unwanted annotations from the genrate yam, rename accordingly
+
+ *5 kubectl apply -f generated.yaml
+check podsatatus  -kubectl get pods
+if status is running Ok, pOd Created.
+
+*6 store password,user name as secretes in kubernetes
+kubectl create secret generic kafka-secrets --from-literal=BOOTSTRAP_SERVERS=pkc-41p56.asia-south1.gcp.confluent.cloud:9092
+kubectl delete secret kafka-secrets  (delete secret)
+// to create multiple secrets
+a-kubectl create secret generic kafka-secrets --from-literal=BOOTSTRAP_SERVERS=pkc-41p56.asia-south1.gcp.confluent.cloud:9092 --from-literal=SASL_USERNAME=442V3XBIVI6K43UW --from-literal=SASL_PASSWORD=qT7k8wzjXZQY+X2B2Jfakb3b/VrGNfpugthG3JFZRRx4hLNuci79DSGV8kGM1Kix
+b-kubectl create secret generic mail-secrets  --from-literal=MAIL_USERNAME=api --from-literal=MAIL_PASSWORD=8a90ed2733bff4f49de292130b21c4c9
+
+then apply changes in kubectl yaml file 
+kubectl apply -f email.yaml
+
+*7
+1-google cloud -> microserviceproject -> kubernetesengine -> create kubernetes cluser(autopilotmode)
+2- open googlecloudshell
+  a-set our project - gcloud config set project microservices-415919
+  b-kubeconfig entry generated for our cluster (nest-microservices)                               cluseter-name (nest-microservices)
+                  - gcloud container clusters get-credentials nest-microservices --zone=asia-south1
+  c-write our kubernetes code
+     - nano email.yaml
+      copy kubernetes code, save & exit
+  d- apply - kubectl apply -f email.yaml
+  image is not available there
+
+*8
+-set gcloud cli local, authenticate , setup core project
+
+
+*9  add container on google cloud container registery
+docker compose -f docker-compose-prod.yaml build
+push to gcloud container registery
+gcloud auth configure-docker asia-south1-docker.pkg.dev  (for auth)
+            //image on docker   //regio                     //projectid        //repo //image nme
+docker tag afsalkp/email:0.0.3  asia-south1-docker.pkg.dev/microservices-415919/email/email  (for tag)
+docker push asia-south1-docker.pkg.dev/microservices-415919/email/email  (for push)
+
+get image id from container registery , edit in our kuberented yaml file with editor,
+add kubecl command for secrets in google clod shell
+apply - kubectl apply -f email.yaml
+
+

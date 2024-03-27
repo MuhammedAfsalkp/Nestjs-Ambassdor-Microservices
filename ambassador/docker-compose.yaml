@@ -1,0 +1,46 @@
+version: '3.9'
+services:
+  ambassador_backend:
+    build: .
+    command: "npm run start:dev"
+    container_name: ambassador-ms
+    volumes:
+      - .:/app
+    ports:
+      - 8003:3000
+    networks:
+      - kafka_network
+
+  ambassador_consumer:
+    build: .
+    command: "npm run consume"
+    networks:
+      - kafka_network
+
+  # ambassador_db:
+  #   image: mysql:5.7.22
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: ambassador
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: root
+  #     MYSQL_ROOT_PASSWORD: root
+  #   volumes:
+  #     - .dbdata:/var/lib/mysql
+  #   ports:
+  #     - 33066:3306
+
+  # redis:
+  #   image: redis
+  #   ports:
+  #     - 6379:6379
+
+  #   networks:
+  #     - kafka_network
+
+networks:
+  kafka_network:
+    name: nest-ambassador-main_default
+    external: true 
+      
+  

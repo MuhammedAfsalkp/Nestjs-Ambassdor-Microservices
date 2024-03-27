@@ -1,0 +1,16 @@
+version: '3'
+services:
+  email_backend:
+    build: 
+      context: .
+      dockerfile: prod.dockerfile
+    image: afsalkp/email:0.0.3
+    environment:
+      BOOTSTRAP_SERVERS: pkc-41p56.asia-south1.gcp.confluent.cloud:9092
+      SASL_USERNAME: 442V3XBIVI6K43UW
+      SASL_PASSWORD: qT7k8wzjXZQY+X2B2Jfakb3b/VrGNfpugthG3JFZRRx4hLNuci79DSGV8kGM1Kix
+      GROUP_ID:   email_consumer
+      MAIL_HOST: live.smtp.mailtrap.io
+      MAIL_PORT:  2525
+      MAIL_USERNAME: api
+      MAIL_PASSWORD: 8a90ed2733bff4f49de292130b21c4c9

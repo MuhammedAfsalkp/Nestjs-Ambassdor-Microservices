@@ -1,0 +1,36 @@
+version: '3'
+services:
+  admin_backend:
+    build: .
+    image: afsalkp/admin:0.0.8
+    command: "npm run start:dev"
+    ports:
+      - 8002:3000
+    environment:
+      BOOTSTRAP_SERVERS: pkc-41p56.asia-south1.gcp.confluent.cloud:9092
+      SASL_USERNAME: 442V3XBIVI6K43UW
+      SASL_PASSWORD: qT7k8wzjXZQY+X2B2Jfakb3b/VrGNfpugthG3JFZRRx4hLNuci79DSGV8kGM1Kix
+      GROUP_ID:   admin_consumer
+      DB_HOST: 35.200.133.227
+      DB_PORT: 3306
+      DB_DATABASE: admin
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      USERS_MS: http://users-ms:3000
+    
+
+  admin_consumer:
+    build: .
+    image: afsalkp/admin:0.0.8
+    command: "npm run consume"
+    environment:
+      BOOTSTRAP_SERVERS: pkc-41p56.asia-south1.gcp.confluent.cloud:9092
+      SASL_USERNAME: 442V3XBIVI6K43UW
+      SASL_PASSWORD: qT7k8wzjXZQY+X2B2Jfakb3b/VrGNfpugthG3JFZRRx4hLNuci79DSGV8kGM1Kix
+      GROUP_ID:   admin_consumer
+      DB_HOST: 35.200.133.227
+      DB_PORT: 3306
+      DB_DATABASE: admin
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      USERS_MS: http://users-ms:3000

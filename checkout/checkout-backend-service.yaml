@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose-prod.yaml
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: checkout-backend
+  name: checkout-backend
+spec:
+  ports:
+    - name: "8004"
+      port: 8004
+      targetPort: 3000
+  selector:
+    io.kompose.service: checkout-backend
+status:
+  loadBalancer: {}

@@ -1,0 +1,56 @@
+version: '3.9'
+services:
+  checkout_backend:
+    build: .
+    command: "npm run start:dev"
+    container_name: admin-ms
+    volumes:
+      - .:/app
+    ports:
+      - 8004:3000
+    networks:
+      - kafka_network
+    # depends_on:
+    #   - admin_db
+
+  checkout_consumer:
+    build: .
+    command: "npm run consume"
+    networks:
+      - kafka_network
+    # depends_on:
+    #   - admin_db
+
+
+  # admin_db:
+  #   image: mysql:8
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: admin
+  #     MYSQL_USER: root
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_TCP_PORT: 3308
+  #   volumes:
+  #     - .dbdata:/var/lib/mysql
+  #   ports:
+  #     - 3308:3308
+  #   networks:
+  #     - kafka_network
+
+  # phpmyadmin:
+  #   image: phpmyadmin:5.2.0
+  #   container_name: PhpMyAdminAdmin   
+  #   restart: always
+  #   ports:
+  #     - 5014:80
+  #   environment:
+  #     - PMA_ARBITRARY=1
+  #   networks:
+  #     - kafka_network
+
+networks:
+  kafka_network:
+    name: nest-ambassador-main_default
+    external: true 
+      
+  

@@ -1,0 +1,11 @@
+//to run microservice
+docker compose exec admin_backend sh
+npm run consume
+
+
+//or with updated compose file ,after exit
+docker compose up --build
+
+//reaf helper.txt in users, email
+for thuis
+1.clon db
