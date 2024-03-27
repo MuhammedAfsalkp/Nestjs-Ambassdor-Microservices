@@ -1,0 +1,17 @@
+version: '3'
+services:
+  users_backend:
+    build: 
+      context: .
+      dockerfile: prod.dockerfile
+    image: afsalkp/users:0.0.3
+    ports:
+      - 8001:3000
+    environment:
+      DB_HOST: 10.66.112.3
+      DB_PORT: 3306
+      DB_DATABASE: users
+      DB_USERNAME: root
+      DB_PASSWORD: users-db
+
+  

@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  users_backend:
+    build: .
+    container_name: users-ms
+    volumes:
+      - .:/app
+    # depends_on:
+    #   - users_db
+    networks:
+      - kafka_network
+
+  # users_db:
+  #   image: mysql:8
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: users
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_USER: root
+  #     MYSQL_TCP_PORT: 3307
+  #   volumes:
+  #     - .dbdata:/var/lib/mysql
+  #   ports:
+  #     - 3307:3307
+  #   networks:
+  #     - kafka_network
+
+  # phpmyadmin:
+  #   image: phpmyadmin:5.2.0
+  #   container_name: PhpMyAdminUser   
+  #   restart: always
+  #   ports:
+  #     - 5013:80
+  #   environment:
+  #     - PMA_ARBITRARY=1
+  #   networks:
+  #     - kafka_network
+
+networks:
+  kafka_network:
+    name: nest-ambassador-main_default
+    external: true 
+      
+  

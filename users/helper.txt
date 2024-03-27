@@ -1,0 +1,45 @@
+1- for dev
+docker-compose.yaml
+docker compose up
+
+2. for prod
+prod.dockerfile
+docker-compose-prod.yaml
+create mysql db, get public ip
+update env 
+to test - docker compose -f docker-compose-prod.yaml up
+
+3.in google cloud sql instance give our machines ip for making db connection
+
+4.make kubernetes file for deploymant
+kompose convert -f docker-compose-prod.yaml, updates (eg:-resource,remove annotation,make it one file)
+create users.yaml in google cloud
+
+5.deploy
+docker compose -f docker-compose-prod.yaml build
+docker tag afsalkp/users:0.0.1 asia-south1-docker.pkg.dev/microservices-415919/email/users
+docker push asia-south1-docker.pkg.dev/microservices-415919/email/users
+update image on cloud yaml file
+apply- kubectl apply -f users.yaml
+make type LoadBalancer for getting a port for service(url)
+but here it doesnt need, only other services use the user microservice, not directly
+
+on sql use 5-private ip, inide kubernetes each deployment public ip changes,so connection to sql use private ip
+apply changes
+
+kubectl apply -f users.yaml
+-Ingress
+inorder to use same endpoint for all other services
+serve as API gateway,load balancing,ssl termination
+if nest js make sure / path get an ok response to ensure ingress controller is working
+
+
+//if theres is update on code add updates
+change version tag i docker-compose-prod, 
+docker compose -f docker-compose-prod.yaml build, 
+docker tag afsalkp/ambassador:0.0.5 asia-south1-docker.pkg.dev/microservices-415919/email/ambassador:0.0.5
+docker push asia-south1-docker.pkg.dev/microservices-415919/email/ambassador:0.0.5
+ongcloud cloudshell,
+then delete old, by  - kubectl delete -f users.yaml
+then apply by        - kubectl apply -f users.yaml
+
