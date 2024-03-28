@@ -23,7 +23,17 @@ The application architecture consists of multiple microservices communicating vi
 - [x]Stripe paayment gateway  
 - [x]Docker  
 - [x]Confluent Cloud  
-- [x]Reactjs/NextJs 
+- [x]Reactjs/NextJs
+
+  ## Service Details
+
+| Service Name            | Port Allocated | URL Hosted in Kubernetes | Kafka Topic             |
+|-------------------------|----------------|--------------------------|-------------------------|
+| Admin Microservice      | 3000           | admin.example.com         | admin-topic             |
+| Ambassador Microservice| 3001           | ambassador.example.com    | ambassador-topic        |
+| Checkout Microservice   | 3002           | checkout.example.com      | checkout-topic          |
+| Authentication Microservice | 3003       | auth.example.com          | auth-topic              |
+
 
 **Features**  
 -Admin Dashboard: Administrators can create, update, and delete products. 
