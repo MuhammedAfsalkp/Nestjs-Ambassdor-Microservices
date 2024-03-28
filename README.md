@@ -4,16 +4,16 @@ This project utilizes NestJS with Apache Kafka to build an E-commerce  Ambassado
 
 ![final drawio](https://github.com/MuhammedAfsalkp/Nestjs-Ambassdor-Microservices/assets/82488425/1db03737-2aa7-4b56-9952-14dd419f9cf1)
 
-**Technologies Used**
-NestJS
-SQL(TypeORM)
-Apache Kafka(MIcroservices architecture)
-Kubernetes Engine on Google Cloud
-Redis
-Stripe gateway
-Docker
-Confluent Cloud
-Reactjs/NextJs
+**Technologies Used**  
+NestJS  
+SQL(TypeORM)  
+Apache Kafka(MIcroservices architecture)  
+Kubernetes Engine on Google Cloud  
+Redis  
+Stripe gateway  
+Docker  
+Confluent Cloud  
+Reactjs/NextJs  
 
 **Architecture Overview**
 The application architecture consists of multiple microservices communicating via Apache Kafka:
