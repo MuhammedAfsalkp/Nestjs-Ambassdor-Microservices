@@ -15,7 +15,7 @@ The application architecture consists of multiple microservices communicating vi
 -Email MicroSErvice: Responsible for sending email upon order completion,to  notify users.
 -The services are deployed on Kubernetes Engine on Google Cloud, with Apache Kafka configured on Confluent Cloud. Redis is used for caching rankings, and Stripe gateway is integrated for payment processing.  
 
-**Service Details**
+## Service Details
 
 | Service Name            | Port Allocated | Ingress path                          | Kafka Topic             |
 |-------------------------|----------------|---------------------------------------|-------------------------|
