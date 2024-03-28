@@ -4,7 +4,7 @@ This project utilizes NestJS with Apache Kafka to build an E-commerce  Ambassado
 
 ![final drawio](https://github.com/MuhammedAfsalkp/Nestjs-Ambassdor-Microservices/assets/82488425/1db03737-2aa7-4b56-9952-14dd419f9cf1) 
 
-**Architecture Overview**  
+##**Architecture Overview**  
 The application architecture consists of multiple microservices communicating via Apache Kafka:
 
 -Admin Microservice: Handles product management and admin dashboard functionalities.
@@ -14,7 +14,17 @@ The application architecture consists of multiple microservices communicating vi
 -Email MicroSErvice: Responsible for sending email upon order completion,to  notify users.
 -The services are deployed on Kubernetes Engine on Google Cloud, with Apache Kafka configured on Confluent Cloud. Redis is used for caching rankings, and Stripe gateway is integrated for payment processing.
 
-**Technologies Used**  
+## Service Details
+
+| Service Name            | Port Allocated | URL Hosted in Kubernetes | Kafka Topic             |
+|-------------------------|----------------|--------------------------|-------------------------|
+| Admin Microservice      | 8002           | admin.example.com         | admin_topic             |
+| Ambassador Microservice| 3001           | ambassador.example.com    | ambassador_topic        |
+| Checkout Microservice   | 3002           | checkout.example.com      | checkout_topic          |
+| Authentication Microservice | 3003       | auth.example.com          |              |
+| Email Microservice | 3003       | auth.example.com          | email-topic              |
+
+##**Technologies Used**  
 - [x]NestJS  
 - [x]SQL(TypeORM)  
 - [x]Apache Kafka(For microservices communication)  
@@ -25,14 +35,6 @@ The application architecture consists of multiple microservices communicating vi
 - [x]Confluent Cloud  
 - [x]Reactjs/NextJs
 
-  ## Service Details
-
-| Service Name            | Port Allocated | URL Hosted in Kubernetes | Kafka Topic             |
-|-------------------------|----------------|--------------------------|-------------------------|
-| Admin Microservice      | 3000           | admin.example.com         | admin-topic             |
-| Ambassador Microservice| 3001           | ambassador.example.com    | ambassador-topic        |
-| Checkout Microservice   | 3002           | checkout.example.com      | checkout-topic          |
-| Authentication Microservice | 3003       | auth.example.com          | auth-topic              |
 
 
 **Features**  
