@@ -1,4 +1,4 @@
-__NestJS E-commerce Application__
+__NestJS E-commerce Ambassador Application__
 
 This project utilizes NestJS with Apache Kafka to build an E-commerce  Ambassadorapplication. Embracing microservices architecture, Apache Kafka facilitates seamless communication between services, ensuring scalability, flexibility, resilience, and ease of feature addition and enhancement.
 
