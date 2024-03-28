@@ -14,7 +14,7 @@ The application architecture consists of multiple microservices communicating vi
 -Email MicroSErvice: Responsible for sending email upon order completion,to  notify users.
 -The services are deployed on Kubernetes Engine on Google Cloud, with Apache Kafka configured on Confluent Cloud. Redis is used for caching rankings, and Stripe gateway is integrated for payment processing.  
 
-## Service Details
+**Service Details**
 
 | Service Name            | Port Allocated | URL Hosted in Kubernetes | Kafka Topic             |
 |-------------------------|----------------|--------------------------|-------------------------|
@@ -36,7 +36,7 @@ The application architecture consists of multiple microservices communicating vi
 - [x]Reactjs/NextJs
 
 
-**Features**  
+## Features
 -Admin Dashboard: Administrators can create, update, and delete products. 
 -Ambassador Dashboard: Ambassadors can list products, create shareable links, and track revenue.  
 -Checkout Page: User can purchase products.  
