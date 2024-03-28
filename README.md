@@ -16,13 +16,13 @@ The application architecture consists of multiple microservices communicating vi
 
 **Service Details**
 
-| Service Name            | Port Allocated | URL Hosted in Kubernetes | Kafka Topic             |
-|-------------------------|----------------|--------------------------|-------------------------|
-| Admin Microservice      | 8002           | admin.example.com         | admin_topic             |
-| Ambassador Microservice| 3001           | ambassador.example.com    | ambassador_topic        |
-| Checkout Microservice   | 3002           | checkout.example.com      | checkout_topic          |
-| Authentication Microservice | 3003       | auth.example.com          |              |
-| Email Microservice | 3003       | auth.example.com          | email-topic              |
+| Service Name            | Port Allocated | INgress path                          | Kafka Topic             |
+|-------------------------|----------------|---------------------------------------|-------------------------|
+| Admin Microservice      | 8002           | http://34.149.244.248/api/admin/       | admin_topic             |
+| Ambassador Microservice |  8003          | http://34.149.244.248/api/ambassador/  | ambassador_topic        |
+| Checkout Microservice   | 8004           | http://34.149.244.248/api/checkout/   | checkout_topic          |
+| User Microservice       | 8001           | No Frontend access                    |                         |
+| Email Microservice      |                | Consumer                              | email-topic             |
 
 ## Technologies Used 
 - [x]NestJS  
