@@ -2,18 +2,7 @@ __NestJS E-commerce Ambassador Application__
 
 This project utilizes NestJS with Apache Kafka to build an E-commerce  Ambassadorapplication. Embracing microservices architecture, Apache Kafka facilitates seamless communication between services, ensuring scalability, flexibility, resilience, and ease of feature addition and enhancement.
 
-![final drawio](https://github.com/MuhammedAfsalkp/Nestjs-Ambassdor-Microservices/assets/82488425/1db03737-2aa7-4b56-9952-14dd419f9cf1)
-
-**Technologies Used**  
-NestJS  
-SQL(TypeORM)  
-Apache Kafka(MIcroservices architecture)  
-Kubernetes Engine on Google Cloud  
-Redis  
-Stripe gateway  
-Docker  
-Confluent Cloud  
-Reactjs/NextJs  
+![final drawio](https://github.com/MuhammedAfsalkp/Nestjs-Ambassdor-Microservices/assets/82488425/1db03737-2aa7-4b56-9952-14dd419f9cf1) 
 
 **Architecture Overview**  
 The application architecture consists of multiple microservices communicating via Apache Kafka:
@@ -24,6 +13,17 @@ Checkout Microservice: Responsible for payment processing and order completion.
 User Microservice: Handles user authentication using JWT and cookies.
 Email MicroSErvice: Responsible for sending email upon order completion,to  notify users.
 The services are deployed on Kubernetes Engine on Google Cloud, with Apache Kafka configured on Confluent Cloud. Redis is used for caching rankings, and Stripe gateway is integrated for payment processing.
+
+**Technologies Used**  
+NestJS  
+SQL(TypeORM)  
+Apache Kafka(MIcroservices architecture)  
+Kubernetes Engine on Google Cloud  
+Redis  
+Stripe gateway  
+Docker  
+Confluent Cloud  
+Reactjs/NextJs 
 
 **Features**  
 Admin Dashboard: Administrators can create, update, and delete products. 
