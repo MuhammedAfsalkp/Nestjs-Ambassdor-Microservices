@@ -16,12 +16,12 @@ The application architecture consists of multiple microservices communicating vi
 
 **Service Details**
 
-| Service Name            | Port Allocated | INgress path                          | Kafka Topic             |
+| Service Name            | Port Allocated | Ingress path                          | Kafka Topic             |
 |-------------------------|----------------|---------------------------------------|-------------------------|
 | Checkout Microservice   | 8004           | http://34.149.244.248/api/checkout/   | checkout_topic          |
-| User Microservice       | 8001           | No frontend access                    |                         |
-| Admin Microservice      | 8002           | http://34.149.244.248/api/admin/       | admin_topic             |
 | Ambassador Microservice |  8003          | http://34.149.244.248/api/ambassador/  | ambassador_topic        |
+| Admin Microservice      | 8002           | http://34.149.244.248/api/admin/       | admin_topic             |
+| User Microservice       | 8001           | No frontend access                    |                         |
 | Email Microservice      |                | Consumer                              | email-topic             |
 
 ## Technologies Used 
