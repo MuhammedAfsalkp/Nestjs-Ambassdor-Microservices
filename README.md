@@ -22,7 +22,7 @@ The application architecture consists of multiple microservices communicating vi
 | Ambassador Microservice |  8003          | http://34.149.244.248/api/ambassador/  | ambassador_topic        |
 | Admin Microservice      | 8002           | http://34.149.244.248/api/admin/       | admin_topic             |
 | User Microservice       | 8001           | No frontend access                    |                         |
-| Email Microservice      |                | Consumer                              | email-topic             |
+| Email Microservice      |                | Consumer                              | email_topic             |
 
 ## Technologies Used 
 - [x]NestJS  
