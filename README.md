@@ -15,15 +15,15 @@ The application architecture consists of multiple microservices communicating vi
 -The services are deployed on Kubernetes Engine on Google Cloud, with Apache Kafka configured on Confluent Cloud. Redis is used for caching rankings, and Stripe gateway is integrated for payment processing.
 
 **Technologies Used**  
--NestJS  
--SQL(TypeORM)  
--Apache Kafka(MIcroservices architecture)  
--Kubernetes Engine on Google Cloud  
--Redis  
--Stripe gateway  
--Docker  
--Confluent Cloud  
--Reactjs/NextJs 
+- [x]NestJS  
+- [x]SQL(TypeORM)  
+- [x]Apache Kafka(For microservices communication)  
+- [x]Kubernetes Engine on Google Cloud  
+- [x]Redis  
+- [x]Stripe paayment gateway  
+- [x]Docker  
+- [x]Confluent Cloud  
+- [x]Reactjs/NextJs 
 
 **Features**  
 -Admin Dashboard: Administrators can create, update, and delete products. 
