@@ -2,10 +2,11 @@ __NestJS E-commerce Ambassador Application__
 
 This project utilizes NestJS with Apache Kafka to build an E-commerce  Ambassadorapplication. Embracing microservices architecture, Apache Kafka facilitates seamless communication between services, ensuring scalability, flexibility, resilience, and ease of feature addition and enhancement.
 
-![final drawio](https://github.com/MuhammedAfsalkp/Nestjs-Ambassdor-Microservices/assets/82488425/1db03737-2aa7-4b56-9952-14dd419f9cf1) 
-
 ## Architecture Overview 
 The application architecture consists of multiple microservices communicating via Apache Kafka:
+
+![final drawio](https://github.com/MuhammedAfsalkp/Nestjs-Ambassdor-Microservices/assets/82488425/1db03737-2aa7-4b56-9952-14dd419f9cf1) 
+
 
 -Admin Microservice: Handles product management and admin dashboard functionalities.
 -Ambassador Microservice: Manages ambassador functionalities, including product listing, link creation, and revenue tracking.
